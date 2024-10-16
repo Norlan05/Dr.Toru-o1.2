@@ -17,6 +17,10 @@
 
     <!-- Título del sitio -->
     <title>Clínica Ginecológica Dr. Toruño</title>
+    <!-- Meta Descripción para SEO -->
+    <meta
+      name="description"
+      content="Clínica Ginecológica Dr. Toruño en Somoto, Nicaragua. Ofrecemos servicios ginecológicos especializados con atención personalizada." />
 
     <!-- Google Fonts: Se usa la fuente 'Poppins' con varios grosores -->
     <link
@@ -41,6 +45,11 @@
     <link rel="stylesheet" href="css/animate.min.css" />
     <!-- Magnific Popup CSS: Ventanas emergentes con imágenes o videos -->
     <link rel="stylesheet" href="css/magnific-popup.css" />
+    <!-- Incluye SweetAlert2 CSS y JS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Medipro CSS: Estilos generales de normalización y sitio -->
     <link rel="stylesheet" href="css/normalize.css" />
@@ -121,7 +130,7 @@
               <div class="col-lg-2 col-12">
                 <div class="get-quote">
                   <!-- Botón de reserva -->
-                  <a href="appointment.html" class="btn">Reservar Cita</a>
+                  <div class="btn">Reservar Cita</div>
                 </div>
               </div>
             </div>
@@ -841,7 +850,7 @@
         <!-- Fila para el formulario de reserva -->
         <div class="row">
           <div class="col-lg-6 col-md-12 col-12">
-            <form class="form" action="#">
+            <form id="reservation-form" class="form" action="#">
               <!-- Fila para los campos del formulario -->
               <div class="row">
                 <!-- Campo para el nombre -->
@@ -886,15 +895,22 @@
                       name="phone"
                       placeholder="Número de Teléfono"
                       required
-                      pattern="\d*"
-                      title="El número de teléfono debe contener solo números" />
+                      pattern="\d{8,11}"
+                      title="El número de teléfono debe contener solo números entre 8 y 11 dígitos"
+                      minlength="8"
+                      maxlength="11" />
                     <span id="phone-error" class="error-message"></span>
                   </div>
                 </div>
                 <!-- Campo para la fecha -->
                 <div class="col-lg-6 col-md-6 col-12">
                   <div class="form-group">
-                    <input type="text" placeholder="Fecha" id="datepicker" />
+                    <input
+                      type="date"
+                      id="date"
+                      name="date"
+                      placeholder="Fecha"
+                      required />
                   </div>
                 </div>
                 <!-- Campo para la hora -->
@@ -913,9 +929,7 @@
                 <div class="col-lg-5 col-md-4 col-12">
                   <div class="form-group">
                     <div class="button">
-                      <button type="submit" class="btn">
-                        Reservar tu cita
-                      </button>
+                      <button type="submit" class="btn">Reserva tu cita</button>
                     </div>
                   </div>
                 </div>
@@ -1037,5 +1051,8 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/inicio.js" async></script>
+    <script src="js/reservacion.js"></script>
+    <!-- Enlace al archivo JavaScript -->
   </body>
 </html>
